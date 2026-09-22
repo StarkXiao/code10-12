@@ -1,0 +1,17 @@
+{
+  "name": "elevator-rescue-dispatch",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "电梯困人救援调度系统：接警 → 监控联动 → 就近/资质匹配派单 → 到场时序记录 → SLA 超时升级",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node scripts/seed.js",
+    "demo": "TZ=Asia/Shanghai node scripts/demo.js",
+    "test": "node --test test/"
+  }
+}
