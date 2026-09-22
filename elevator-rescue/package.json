@@ -1,0 +1,15 @@
+{
+  "name": "elevator-rescue-dispatch",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "电梯困人救援调度系统：接收轿厢报警、联动楼宇监控、按就近与资质匹配救援人员、记录到场时序",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test/smoke.mjs"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}

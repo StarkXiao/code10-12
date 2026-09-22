@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>电梯困人救援调度中心</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <div class="brand">🛗 电梯困人救援调度中心</div>
+  <div class="stats" id="stats"></div>
+  <div class="clock" id="clock">--:--:--</div>
+</header>
+
+<main>
+  <!-- 左：模拟报警 + 报警列表 -->
+  <section class="col">
+    <div class="card">
+      <h2>模拟轿厢报警</h2>
+      <form id="alarmForm">
+        <label>电梯
+          <select id="fElevator" required></select>
+        </label>
+        <div class="row">
+          <label>被困人数
+            <input id="fTrapped" type="number" min="1" max="30" value="2" required>
+          </label>
+          <label>报告楼层
+            <input id="fFloor" type="number" min="1" max="99" placeholder="默认轿厢位置">
+          </label>
+        </div>
+        <label>报警来源
+          <select id="fSource"></select>
+        </label>
+        <label class="check">
+          <input id="fSimulate" type="checkbox" checked>
+          模拟救援人员自动推进（接单→到场→救出→闭环）
+        </label>
+        <button type="submit" class="btn danger">🚨 触发困人报警</button>
+      </form>
+    </div>
+
+    <div class="card grow">
+      <h2>报警事件 <span class="muted" id="alarmCount"></span></h2>
+      <div id="alarmList" class="alarm-list"></div>
+    </div>
+  </section>
+
+  <!-- 中：报警详情 + 时序 + 监控联动 -->
+  <section class="col">
+    <div class="card grow" id="detailCard">
+      <div class="empty">← 选择左侧报警查看详情，或触发一次模拟报警</div>
+    </div>
+  </section>
+
+  <!-- 右：救援人员 + 候选评分 -->
+  <section class="col">
+    <div class="card">
+      <h2>救援人员</h2>
+      <div id="rescuerList"></div>
+    </div>
+    <div class="card grow">
+      <h2>候选评分 <span class="muted">就近 + 资质 + 经验</span></h2>
+      <div id="candidateList"><div class="empty">选择报警后显示实时评分</div></div>
+    </div>
+  </section>
+</main>
+
+<div id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
